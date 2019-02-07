@@ -33,11 +33,11 @@ class StoryList {
     // this function should return the newly created story so it can be used in the script.js file where it will be appended to the DOM
     let token = user.loginToken;
     let story = newStory;
-    let sendLocation = 'https://hack-or-snooze-v2.herokuapp.com/stories'
+    let sendLocation = 'https://hack-or-snooze-v2.herokuapp.com/stories';
 
     let response = await $.post(sendLocation, {token, story});
    
-    return response.story
+    return response.story;
     
     // return dataResponse;
      
