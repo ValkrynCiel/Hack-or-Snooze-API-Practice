@@ -1,3 +1,5 @@
+// solid star: <i class="fas fa-star"></i> (w/ class favorite-item)
+// empty star: <i class="far fa-star"></i> (w/ class regular-item)
 // global flag to easily tell if we're logged in
 let LOGGED_IN = false;
 
@@ -160,6 +162,7 @@ $(document).ready(async function() {
     // render story markup
     const storyMarkup = $(
       `<li id="${story.storyId}">
+      <i class="far fa-star"></i>
           <a class="article-link" href="${story.url}" target="a_blank">
             <strong>${story.title}</strong>
            </a>
@@ -189,7 +192,7 @@ $(document).ready(async function() {
     $navLogin.hide();
     $navLogOut.show();
     $navCreateStory.show();
-    $navCreateStory.css('display', 'in-line')
+    $('#nav-favorites').show();
   }
 
   // simple function to pull the hostname from a URL
@@ -227,4 +230,17 @@ $(document).ready(async function() {
     let newListItem = generateStoryHTML(newStory);
     
     $allStoriesList.prepend(newListItem);
+
+    
   })
+
+});
+
+$('.articles-container').on('click', '.fa-star', function (evt) {
+  $(evt.target).toggleClass('far fas')
+})
+
+$('#nav-favorites').on('click', function (evt) {
+  evt.preventDefault();
+})
+
