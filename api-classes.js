@@ -29,7 +29,7 @@ class StoryList {
      */
   
   async addStory(user, newStory) {
-    // TODO - Implement this functions!
+    // DONE - Implement this functions!
     // this function should return the newly created story so it can be used in the script.js file where it will be appended to the DOM
     let token = user.loginToken;
     let story = newStory;
@@ -38,8 +38,6 @@ class StoryList {
     let response = await $.post(sendLocation, {token, story});
    
     return response.story;
-    
-    // return dataResponse;
      
   }
 }

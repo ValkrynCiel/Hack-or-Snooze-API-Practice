@@ -227,16 +227,4 @@ $(document).ready(async function() {
     let newListItem = generateStoryHTML(newStory);
     
     $allStoriesList.prepend(newListItem);
-    // FUNCTION TO SEND TO DOM
-
-    
   })
-
-
-async function sendPostRequest (dataObj) {
-  // let sendLocation = 'https://hack-or-snooze-v2.herokuapp.com/stories'
-  // let dataResponse = await $.post(sendLocation, dataObj);
-  // return dataResponse;
-}
-});
-
