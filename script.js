@@ -216,17 +216,17 @@ $(document).ready(async function() {
     let submittedAuthor = $('#author').val();
     let submittedTitle = $('#title').val();
     let submittedUrl = $('#url').val();
-    let storyData = {
-      "token": token,
-      "story": {
+    let story = {
         "author": submittedAuthor,
         "title": submittedTitle,
         "url": submittedUrl
       }
-    }
-    storyList.addStory(user, storyData)
-    
+  
+    let newStory = await storyList.addStory(user, story);
 
+    let newListItem = generateStoryHTML(newStory);
+    
+    $allStoriesList.prepend(newListItem);
     // FUNCTION TO SEND TO DOM
 
     
