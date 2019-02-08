@@ -246,9 +246,10 @@ $(document).ready(async function() {
 
 $('.articles-container').on('click', '.fa-star', async function (evt) {
   evt.preventDefault();
-  user.defineFavoriteStories(evt);
+  user.toggleFavoriteStories(evt);
 })
 
+// event listener to toggle lists when we click on favorites/all stories
 $('#nav-favorites').on('click', function (evt) {
   evt.preventDefault();
   if ($('#nav-favorites').hasClass('open-favorites-list')) {
