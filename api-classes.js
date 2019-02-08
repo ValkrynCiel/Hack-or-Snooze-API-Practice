@@ -85,7 +85,7 @@ class User {
     return newUser;
   }
 
-  async getFavorites(evt) {
+  async defineFavoriteStories(evt) {
     let storyId = $(evt.target).closest('li').attr('id');
     let favoritesLink = `https://hack-or-snooze-v2.herokuapp.com/users/${username}/favorites/${storyId}`;
     let token = this.loginToken;
