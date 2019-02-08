@@ -57,7 +57,15 @@ class User {
     this.loginToken = "";
     this.favorites = [];
     this.ownStories = [];
-  }
+    }
+    
+    // // TODO: LOOP THROUGH FAVE STORIES AND APPEND TO FAVESTORYLIST
+    // addFaveStoriesToDOM(){
+    // for (let fave of this.favorites) {
+    //     let storyDom = generateStoryHTML(fave);
+    //     $('#favorited-articles').append(storyDom);
+    //   }
+    // }
 
   /*
    A class method to create a new user - it accepts a username, password and name
@@ -94,7 +102,12 @@ class User {
     // First logic: send post request for favoriting article:
     if ($(evt.target).hasClass('far')) {
       await $.post(favoritesLink, {token});
-      $('#favorited-articles').append($specificStoryClone);
+      $('#favorited-articles').prepend($specificStoryClone);
+      let listOfUnstarred = $('#favorited-articles').find('i.far')
+      for (let star of listOfUnstarred){
+        star.classList.remove('far')
+        star.classList.add('fas')
+      }
     // Second logic: send delete request for un-favoriting article. NOTE FOR GAB: $.ajax is for when get and post aren't enough and you need to customize. it accepts only 1 object, with minimum the url and request type, and then a third optional key of data that has an object as its value. 
     } else {
       await $.ajax({url: favoritesLink, type: 'DELETE', data: {token}});

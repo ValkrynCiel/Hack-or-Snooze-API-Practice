@@ -252,18 +252,13 @@ $('.articles-container').on('click', '.fa-star', async function (evt) {
 // event listener to toggle lists when we click on favorites/all stories
 $('#nav-favorites').on('click', function (evt) {
   evt.preventDefault();
+  $('#nav-favorites').toggleClass('open-favorites-list open-all-list')
+  $('#favorited-articles').toggle();
+  $('#all-articles-list').toggle();
   if ($('#nav-favorites').hasClass('open-favorites-list')) {
-    $(evt.target).html('all');
-    $('#nav-favorites').removeClass('open-favorites-list');
-    $('#nav-favorites').addClass('open-all-list');
-    $('#favorited-articles').show();
-    $('#all-articles-list').hide();
-  } else if ($('#nav-favorites').hasClass('open-all-list')) {
     $(evt.target).html('favorites');
-    $('#nav-favorites').removeClass('open-all-list');
-    $('#nav-favorites').addClass('open-favorites-list');
-    $('#favorited-articles').hide();
-    $('#all-articles-list').show();
+  } else if ($('#nav-favorites').hasClass('open-all-list')) {
+    $(evt.target).html('all');
   }
 
 })
