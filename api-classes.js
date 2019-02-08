@@ -59,13 +59,7 @@ class User {
     this.ownStories = [];
     }
     
-    // // TODO: LOOP THROUGH FAVE STORIES AND APPEND TO FAVESTORYLIST
-    // addFaveStoriesToDOM(){
-    // for (let fave of this.favorites) {
-    //     let storyDom = generateStoryHTML(fave);
-    //     $('#favorited-articles').append(storyDom);
-    //   }
-    // }
+    
 
   /*
    A class method to create a new user - it accepts a username, password and name

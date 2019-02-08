@@ -158,15 +158,16 @@ $(document).ready(async function() {
 
   function generateStoryHTML(story) {
     let hostName = getHostName(story.url);
-    let favoriteArray = user.favorites;
+    let favoriteArray = user ? user.favorites : null
     let typeOfStar = 'far';
 
-    for (let favoriteStory of favoriteArray){
-      if (favoriteStory.storyId === story.storyId){
-        typeOfStar = 'fas';
+    if (user){
+      for (let favoriteStory of favoriteArray){
+        if (favoriteStory.storyId === story.storyId){
+          typeOfStar = 'fas';
+        }
       }
     }
-
     // render story markup
     const storyMarkup = $(
       `<li id="${story.storyId}">
