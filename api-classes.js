@@ -161,3 +161,4 @@ class Story {
     this.updatedAt = storyObj.updatedAt;
   }
 }
+
