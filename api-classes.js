@@ -85,6 +85,19 @@ class User {
     return newUser;
   }
 
+  async getFavorites(evt) {
+    let storyId = $(evt.target).closest('li').attr('id');
+    let favoritesLink = `https://hack-or-snooze-v2.herokuapp.com/users/${username}/favorites/${storyId}`;
+    let token = this.loginToken;
+    // First logic: send post request for favoriting article:
+    if ($(evt.target).hasClass('far')) {
+      await $.post(favoritesLink, {token});
+    // Second logic: send delete request for un-favoriting article. NOTE FOR GAB: $.ajax is for when get and post aren't enough and you need to customize. it accepts only 1 object, with minimum the url and request type, and then a third optional key of data that has an object as its value. 
+    } else {
+      await $.ajax({url: favoritesLink, type: 'DELETE', data: {token}});
+    }
+    $(evt.target).toggleClass('far fas');
+  }
   /*
    A class method to log in a user. It returns the user 
    */
