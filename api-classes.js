@@ -89,10 +89,9 @@ class User {
 
   async toggleFavoriteStories(evt) {
     let $specificStoryClone = ($(evt.target).closest('li').clone()).prop('outerHTML');
-    console.log($specificStoryClone)
     let storyId = $(evt.target).closest('li').attr('id');
     let favoritesLink = `https://hack-or-snooze-v2.herokuapp.com/users/${username}/favorites/${storyId}`;
-    let token = this.loginToken;
+    let token = user.loginToken;
     // First logic: send post request for favoriting article:
     if ($(evt.target).hasClass('far')) {
       await $.post(favoritesLink, {token});
